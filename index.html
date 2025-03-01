@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Token Generator</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #1e1e2f;
@@ -16,55 +15,41 @@
             transition: background 0.5s ease;
             overflow-x: hidden;
         }
-
         .navbar {
             background: linear-gradient(90deg, #2c2c54, #212642);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
-
         .navbar-brand {
             font-weight: bold;
             color: #58a6ff !important;
             font-size: 1.5rem;
         }
-
-        .navbar-nav .nav-link {
-            color: #dcdcdc !important;
-            font-weight: bold;
-            margin: 0 10px;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #7b92ff !important;
-            transform: scale(1.1);
-        }
-
         .container {
             max-width: 500px;
             margin-top: 50px;
-            background: #2a2d3a;
+            background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
-
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            color: #dcdcdc;
+            border: none;
+        }
         .btn-primary {
             background: #58a6ff;
             border: none;
-            transition: background 0.3s ease;
+            transition: 0.3s;
         }
-
         .btn-primary:hover {
             background: #7b92ff;
         }
-
-        #tokenOutput {
-            word-wrap: break-word;
-            margin-top: 10px;
-            padding: 10px;
-            background: #212642;
-            border-radius: 5px;
+        #tokenResult {
+            margin-top: 15px;
+            font-weight: bold;
+            word-break: break-all;
+            text-align: center;
         }
     </style>
 </head>
@@ -74,9 +59,8 @@
             <a class="navbar-brand" href="#">Token Generator</a>
         </div>
     </nav>
-
     <div class="container">
-        <h3 class="text-center">Generate Your Token</h3>
+        <h2 class="text-center">Generate Your Token</h2>
         <form id="tokenForm">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
@@ -88,10 +72,9 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Generate Token</button>
         </form>
-        <div id="tokenOutput" class="text-center mt-3"></div>
+        <div id="tokenResult" class="mt-3"></div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
