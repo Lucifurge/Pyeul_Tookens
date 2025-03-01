@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resultContainer.innerHTML = `<span style="color: #58a6ff;">Generating token...</span>`;
 
         try {
-            const response = await fetch("https://pyeultookenapi-production.up.railway.app/generate", {
+            const response = await fetch("https://pyeultookenapi-production.up.railway.app/get_token", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
