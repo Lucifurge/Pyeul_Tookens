@@ -27,17 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch("https://pyeultookenapi-production.up.railway.app/get_token", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, password })
+                body: JSON.stringify({ email, password }),
+                mode: "cors",  // Ensure cross-origin request works
             });
 
             const data = await response.json();
 
-            if (response.ok && data.access_token) {
+            if (response.ok && data.token) {  // Fixed the token reference
                 resultContainer.innerHTML = `
                     <strong>Token:</strong> <br>
-                    <textarea id="tokenField" readonly style="width: 100%; height: 60px;">${data.access_token}</textarea>
+                    <textarea id="tokenField" readonly style="width: 100%; height: 60px;">${data.token}</textarea>
                     <button id="copyButton" class="btn btn-secondary btn-sm mt-2">Copy Token</button>
                 `;
 
