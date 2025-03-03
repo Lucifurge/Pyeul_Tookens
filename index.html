@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Token Generator</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
             background-color: #1e1e2f;
@@ -84,6 +88,35 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Generate Token</button>
         </form>
+
+  <script>
+     document.addEventListener("DOMContentLoaded", () => {
+      // Invoke the lock screen on page load
+      lockScreen();
+    });
+
+    const bgUploader = document.getElementById("bgUploader");
+
+    bgUploader.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          document.body.style.backgroundImage = `url('${e.target.result}')`;
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundRepeat = "no-repeat";
+          document.body.style.backgroundAttachment = "fixed";
+        };
+
+        reader.onerror = () => {
+          alert("Failed to load the image. Please try again with a valid image.");
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        alert("No file selected. Please select an image.");
+      }
         <div id="tokenResult"></div>
     </div>
     <script src="index.js"></script>
